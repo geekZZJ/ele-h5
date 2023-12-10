@@ -1,6 +1,7 @@
 import { defineComponent, ref } from 'vue'
 import { Tabbar, TabbarItem } from 'vant'
 import './TabsView.less'
+import { RouterView } from 'vue-router'
 
 export default defineComponent({
   name: 'TabsView',
@@ -9,7 +10,8 @@ export default defineComponent({
 
     return () => (
       <div>
-        <div class="center">{active.value}</div>
+        {/* <div class="center">{active.value}</div> */}
+        <RouterView></RouterView>
         <Tabbar v-model={active.value}>
           <TabbarItem name="home" icon="home-o">
             首页
