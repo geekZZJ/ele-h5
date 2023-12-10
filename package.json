@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "pinia": "^2.1.7",
+    "vant": "^4.8.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
@@ -31,6 +32,7 @@
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^8.0.0",
+    "less": "^4.2.0",
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.0.3",
     "typescript": "~5.2.0",
