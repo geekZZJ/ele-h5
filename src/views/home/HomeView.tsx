@@ -17,7 +17,7 @@ export default defineComponent({
     ]
     return () => (
       <div class="home-page">
-        <TheTop />
+        <TheTop recommends={recommends} />
       </div>
     )
   }
