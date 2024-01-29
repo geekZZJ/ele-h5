@@ -29,7 +29,7 @@ export default defineComponent({
       type: String
     }
   },
-  emits: ['search', 'clear', 'update:modelValue', 'cancel'],
+  emits: ['search', 'clear', 'update:modelValue', 'cancel', 'inputClick'],
   setup(props: IProps, { emit, slots }) {
     const onKeypress = (e: KeyboardEvent) => {
       const ENTER_CODE = 13
@@ -63,6 +63,7 @@ export default defineComponent({
                   placeholder={props.placeholder}
                   onKeypress={onKeypress}
                   onInput={(e) => emit('update:modelValue', (e.target as HTMLInputElement).value)}
+                  onClick={() => emit('inputClick')}
                 />
                 {slots['right-icon'] && (
                   <div class="op-field__right-icon">

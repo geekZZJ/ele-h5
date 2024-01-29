@@ -1,6 +1,8 @@
 import { defineComponent } from 'vue'
 import './HomeView.less'
 import TheTop from './components/TheTop'
+import { useToggle } from '@/use/useToggle'
+import SearchView from '../search/SearchView'
 
 export default defineComponent({
   name: 'HomeView',
@@ -15,9 +17,11 @@ export default defineComponent({
         label: '色拉'
       }
     ]
+    const [isSearchViewShow, toggleSearchView] = useToggle(false)
     return () => (
       <div class="home-page">
-        <TheTop recommends={recommends} />
+        {isSearchViewShow.value && <SearchView onCancel={toggleSearchView}></SearchView>}
+        <TheTop recommends={recommends} onSearchClick={toggleSearchView} />
       </div>
     )
   }

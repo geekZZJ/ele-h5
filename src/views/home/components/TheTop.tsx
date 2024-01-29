@@ -15,20 +15,10 @@ export default defineComponent({
       value: []
     }
   },
-  setup() {
-    const searchVal = ref('test')
+  emits: ['searchClick'],
+  setup(props, { emit }) {
     const slots = {
-      'right-icon': () => <span>搜索</span>
-    }
-
-    const onSearch = (v?: string) => {
-      console.log('search', v)
-    }
-    const onCancel = () => {
-      console.log('cancel')
-    }
-    const onClear = () => {
-      console.log('clear')
+      'right-icon': () => <span onClick={() => emit('searchClick')}>搜索</span>
     }
 
     return (props: TheTopIProps) => (
@@ -49,12 +39,8 @@ export default defineComponent({
           shape="round"
           background="linear-gradient(to right, rgb(53, 200, 250), rgb(31, 175, 243))"
           placeholder="世界茶饮 35减2"
-          showAction={true}
-          v-model={searchVal.value}
           v-slots={slots}
-          onSearch={onSearch}
-          onCancel={onCancel}
-          onClear={onClear}
+          onInputClick={() => emit('searchClick')}
         ></OpSearch>
         <div class="search-recommend">
           {props.recommends.map((item) => {
