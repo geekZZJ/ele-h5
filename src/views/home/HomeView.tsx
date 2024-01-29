@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, Transition } from 'vue'
 import './HomeView.less'
 import TheTop from './components/TheTop'
 import { useToggle } from '@/use/useToggle'
@@ -20,7 +20,9 @@ export default defineComponent({
     const [isSearchViewShow, toggleSearchView] = useToggle(false)
     return () => (
       <div class="home-page">
-        {isSearchViewShow.value && <SearchView onCancel={toggleSearchView}></SearchView>}
+        <Transition name="fade">
+          {isSearchViewShow.value && <SearchView onCancel={toggleSearchView}></SearchView>}
+        </Transition>
         <TheTop recommends={recommends} onSearchClick={toggleSearchView} />
       </div>
     )
