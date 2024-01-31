@@ -5,6 +5,7 @@ import { fetchSearchData } from '@/api/search'
 import type { ISearchResult } from '@/types'
 import { Icon } from 'vant'
 import { useToggle } from '@/use/useToggle'
+import { useDebounce } from '@/use/useDebounce'
 
 const history_tags = ['披萨', '栗子', '炒饭', '玉米', '烧烤', '水果', '牛奶', '奶茶']
 
@@ -45,13 +46,15 @@ export default defineComponent({
       onSearch(v)
     }
 
-    watch(searchValue, (newVal: string) => {
+    const searchDe = useDebounce<string>((newVal: string) => {
       if (!newVal) {
         searchResult.value = []
         return
       }
       onSearch(newVal)
-    })
+    }, 1000)
+
+    watch(searchValue, searchDe as any)
 
     return () => (
       <div class="search-view">
