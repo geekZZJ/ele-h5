@@ -46,15 +46,25 @@ export default defineComponent({
       onSearch(v)
     }
 
-    const searchDe = useDebounce<string>((newVal: string) => {
+    // watch(
+    //   searchValue,
+    //   useDebounce((newVal) => {
+    //     if (!newVal) {
+    //       searchResult.value = []
+    //       return
+    //     }
+    //     onSearch(newVal as string)
+    //   }, 1000)
+    // )
+
+    const debounceValue = useDebounce(searchValue, 1000)
+    watch(debounceValue, (newVal) => {
       if (!newVal) {
         searchResult.value = []
         return
       }
       onSearch(newVal)
-    }, 1000)
-
-    watch(searchValue, searchDe as any)
+    })
 
     return () => (
       <div class="search-view">
