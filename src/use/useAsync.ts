@@ -7,7 +7,7 @@ export function useAsync<T>(asyncFn: () => Promise<T>, initValue: T, immediately
   const execute = function () {
     pending.value = true
     error.value = null
-    return asyncFn()
+    asyncFn()
       .then((res) => {
         data.value = res as UnwrapRef<T>
         pending.value = false
