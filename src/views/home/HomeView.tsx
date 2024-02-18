@@ -1,4 +1,4 @@
-import { defineComponent, Transition } from 'vue'
+import { defineComponent, Fragment, Transition } from 'vue'
 import './HomeView.less'
 import TheTop from './components/TheTop/TheTop'
 import { useToggle } from '@/use/useToggle'
@@ -8,6 +8,7 @@ import { fetchHomePageData } from '@/api/home'
 import type { IHomeInfo } from '@/types'
 import OpLoading from '@/components/OpLoading/OpLoading'
 import ScrollBar from './components/ScrollBar/ScrollBar'
+import CountDown from './components/CountDown/CountDown'
 
 export default defineComponent({
   name: 'HomeView',
@@ -27,7 +28,14 @@ export default defineComponent({
     const { data, pending } = useAsync(fetchHomePageData, {} as IHomeInfo, true)
 
     const slots = {
-      default: () => <ScrollBar data={data.value.scrollBarInfoList}></ScrollBar>
+      default: () => (
+        <Fragment>
+          <ScrollBar data={data.value.scrollBarInfoList}></ScrollBar>
+          <div class="home-page__activity">
+            <CountDown data={data.value.countdown}></CountDown>
+          </div>
+        </Fragment>
+      )
     }
 
     return () => (

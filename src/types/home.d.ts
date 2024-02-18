@@ -31,7 +31,14 @@ interface ITransformer {
   label: string
 }
 
-interface ICountdown {
+interface IGood {
+  imgUrl: string
+  name: string
+  oldPrice: number
+  price: number
+}
+
+export interface ICountdown {
   time: number
   goods: IGood
 }
