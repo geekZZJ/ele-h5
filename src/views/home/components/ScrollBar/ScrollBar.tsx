@@ -1,7 +1,7 @@
 import { defineComponent, onMounted, ref } from 'vue'
 import './ScrollBar.less'
 import { useInterval } from '@/use/useInterval'
-import { useTimeout } from '@/use/useTimeout'
+// import { useTimeout } from '@/use/useTimeout'
 import type { IScrollBarInfo } from '@/types'
 
 export default defineComponent({
@@ -37,12 +37,12 @@ export default defineComponent({
         if (index >= count) {
           firstSwipeItem.style.transform = `translateY(${index * props.height}px)`
           // 第一个元素滚动动画结束之后，将整个 container 位置重置
-          const clear = useTimeout(() => {
+          const timeout = setTimeout(() => {
             // 重置逻辑
             firstSwipeItem.style.transform = ''
             container!.style.transform = ''
             container!.style.transition = ''
-            clear()
+            clearTimeout(timeout)
           }, props.transitionTime)
         }
         container!.style.transform = `translateY(-${index * props.height}px)`
