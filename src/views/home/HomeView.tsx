@@ -1,6 +1,6 @@
 import { defineComponent, Transition } from 'vue'
 import './HomeView.less'
-import TheTop from './components/TheTop'
+import TheTop from './components/TheTop/TheTop'
 import { useToggle } from '@/use/useToggle'
 import SearchView from '../search/SearchView'
 import { useAsync } from '@/use/useAsync'
