@@ -7,6 +7,7 @@ import { useAsync } from '@/use/useAsync'
 import { fetchHomePageData } from '@/api/home'
 import type { IHomeInfo } from '@/types'
 import OpLoading from '@/components/OpLoading/OpLoading'
+import ScrollBar from './components/ScrollBar/ScrollBar'
 
 export default defineComponent({
   name: 'HomeView',
@@ -26,7 +27,7 @@ export default defineComponent({
     const { data, pending } = useAsync(fetchHomePageData, {} as IHomeInfo, true)
 
     const slots = {
-      default: () => <span>测试</span>
+      default: () => <ScrollBar data={data.value.scrollBarInfoList}></ScrollBar>
     }
 
     return () => (

@@ -19,6 +19,7 @@ export interface IHomeInfo {
   transformer: ITransformer[]
   countdown: ICountdown
   activities: string[]
+  scrollBarInfoList: IScrollBarInfo[]
 }
 
 interface IBanner {
@@ -33,4 +34,11 @@ interface ITransformer {
 interface ICountdown {
   time: number
   goods: IGood
+}
+
+export interface IScrollBarInfo {
+  type: string
+  badge: string
+  detail: string
+  btn: string
 }

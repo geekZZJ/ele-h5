@@ -12,7 +12,7 @@ export default defineComponent({
   props: {
     recommends: {
       type: Array as PropType<Recommend[]>,
-      value: []
+      default: () => []
     }
   },
   emits: ['searchClick'],

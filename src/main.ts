@@ -5,6 +5,7 @@ import { createPinia } from 'pinia'
 
 import App from './App'
 import router from './router'
+import '@/assets/css/common.less'
 
 const app = createApp(App)
 
