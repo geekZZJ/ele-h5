@@ -1,4 +1,4 @@
-import { defineComponent, ref, type PropType } from 'vue'
+import { defineComponent, type PropType } from 'vue'
 import locationPic from '@/assets/imgs/index_page/location.png'
 import shopPic from '@/assets/imgs/index_page/shopcart.png'
 import commentPic from '@/assets/imgs/index_page/comments.png'

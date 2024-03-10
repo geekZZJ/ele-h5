@@ -1,7 +1,7 @@
 import { TransitionGroup, computed, defineComponent, ref, watch } from 'vue'
 import './SearchView.less'
 import OpSearch from '@/components/OpSearch/OpSearch'
-import { fetchSearchData } from '@/api/search'
+// import { fetchSearchData } from '@/api/search'
 import type { ISearchResult } from '@/types'
 import { Icon } from 'vant'
 import { useToggle } from '@/use/useToggle'
