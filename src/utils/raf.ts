@@ -9,3 +9,7 @@ export const cancelRAF =
   function (id: number) {
     clearTimeout(id)
   }
+
+export const doubleRaf = (fn: () => void) => {
+  RAF(() => RAF(fn))
+}
