@@ -2,6 +2,7 @@ import { createNamespace } from '@/utils/create'
 import { computed, defineComponent, type CSSProperties, reactive } from 'vue'
 import { SWIPE_KEY } from './OpSwipe'
 import { useExpose } from '@/use/useExpose'
+import { useParent } from '@/use/useParent'
 
 const [name, bem] = createNamespace('swipe-item')
 export default defineComponent({

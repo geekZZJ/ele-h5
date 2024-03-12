@@ -1,3 +1,4 @@
+import { useChildren } from '@/use/useChildren'
 import { createNamespace } from '@/utils/create'
 import { clamp } from '@/utils/format'
 import { doubleRaf } from '@/utils/raf'
@@ -173,6 +174,11 @@ export default defineComponent({
         return <div class={bem('indicators')}>{Array(count.value).fill('').map(renderDot)}</div>
       }
     }
+
+    linkChildren({
+      size,
+      props
+    })
 
     onMounted(init)
     onBeforeUnmount(stopAutoPlay)
